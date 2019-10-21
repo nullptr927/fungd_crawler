@@ -51,6 +51,33 @@ GPL 라이선스로 배포됩니다.
 ![asdf3](https://i.imgur.com/zJY90LV.png)
 
 ------
+
+## [도커](https://www.docker.com/resources/what-container)로 실행하기
+
+### 아래 과정은 리눅스에서만 테스트해보았습니다. 추후 volume마운트와, 윈도우 실행 방법도 추가하겠습니다.
+
+### 1. 도커를 설치합니다.
+
+### 2. (선택) 도커 컴포즈를 설치합니다.
+
+### 3. (선택) docker-compose.yml 파일에서 volume을 설정해줍니다.
+
+### 4. 해당 파일들이 모인 디렉터리에서 커맨드 창을 띄우고 아래 명령어를 치시면 됩니다.
+
+  - docker-compose 를 설치한 경우
+
+      ```bash
+          docker-compose up
+      ```
+  
+  - docker-compose 를 설치하지 않은 경우
+      ```bash
+          docker build -t tgd_crawler . && docker run -it tgd_crawler
+      ```
+
+
+
+------
 ## TODO (여러분이 도와주면 좋겠지만 딱히 바라진 않는 것)
 
 * 일반인도 쓸 수 있도록 executable file로 배포하기
