@@ -1,5 +1,5 @@
 @echo off
 :_loop
-(".py ÆÄÀÏÀÇ °æ·Î")
+".py íŒŒì¼ ê²½ë¡œ"
 pause
 goto _loop
