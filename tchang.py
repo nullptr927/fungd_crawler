@@ -1,7 +1,7 @@
 # # -*- coding: utf-8 -*-
 
 import sys
-import os.name
+import os
 import requests
 from bs4 import BeautifulSoup
 
