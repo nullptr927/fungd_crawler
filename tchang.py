@@ -1,6 +1,7 @@
 # # -*- coding: utf-8 -*-
 
 import sys
+import os.name
 import requests
 from bs4 import BeautifulSoup
 
@@ -20,6 +21,9 @@ def get_item_list(page=1):
 
 
 dir1 = ''  # 경로를 설정해 주세요
+
+if os.name == "posix":
+    dir1 = "/output/output.txt"
 
 # 조건 : 댓글이 늘어났거나 새 글임
 
