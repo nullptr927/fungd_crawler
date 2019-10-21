@@ -1,0 +1,10 @@
+version: "3.3"
+
+services: 
+  tgd-crawler:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      labels:
+        - "com.example.description=tgd crawler"
+    tty: true
