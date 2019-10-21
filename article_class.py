@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import requests
 import bs4
 from bs4 import BeautifulSoup
@@ -136,4 +138,3 @@ class Article:
     def items_to_articles(items: list):
         articles = [Article(item_tag=item) for item in items if Article.is_item_valid(item)]
         return articles
-

@@ -41,7 +41,7 @@ GPL 라이선스로 배포됩니다.
 ### 1. 두 파일을 적당한 경로에 같이 둡니다.
 ![asdf1](https://i.imgur.com/ivAzbtX.png)
 
-### 2. tchang.py의 20번 줄에 있는 dir에 글 id를 저장할 파일의 경로를 작성합니다. 첫 실행시 파일 내용은 적당히 작은 숫자로 하시면 됩니다.
+### 2. tchang.py의 23번 줄에 있는 dir에 글 id를 저장할 파일의 경로를 작성합니다. 첫 실행시 파일 내용은 적당히 작은 숫자로 하시면 됩니다.
 ![dir1](https://i.imgur.com/S8SQ5Yh.png)
 
 ### 3. bat 파일을 생성해 다음과 같이 작성합니다.
@@ -49,6 +49,33 @@ GPL 라이선스로 배포됩니다.
 
 ### 4. 실행시켜놓고 계속 띄워두시면 됩니다. id 갱신이 필요하기 때문에 한두번 실행하시면 그때부터 정상적으로 나옵니다.
 ![asdf3](https://i.imgur.com/zJY90LV.png)
+
+------
+
+## [도커](https://www.docker.com/resources/what-container)로 실행하기
+
+### 아래 과정은 리눅스에서만 테스트해보았습니다. 추후 volume마운트와, 윈도우 실행 방법도 추가하겠습니다.
+
+### 1. 도커를 설치합니다.
+
+### 2. (선택) 도커 컴포즈를 설치합니다.
+
+### 3. (선택) docker-compose.yml 파일에서 volume을 설정해줍니다.
+
+### 4. 해당 파일들이 모인 디렉터리에서 커맨드 창을 띄우고 아래 명령어를 치시면 됩니다.
+
+  - docker-compose 를 설치한 경우
+
+      ```bash
+          docker-compose up
+      ```
+  
+  - docker-compose 를 설치하지 않은 경우
+      ```bash
+          docker build -t tgd_crawler . && docker run -it tgd_crawler
+      ```
+
+
 
 ------
 ## TODO (여러분이 도와주면 좋겠지만 딱히 바라진 않는 것)
