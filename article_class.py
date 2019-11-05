@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-
 import requests
 import bs4
 from bs4 import BeautifulSoup
 
 
+from time import sleep
+import random
 import json
 from datetime import datetime
 import anytree
@@ -82,8 +83,6 @@ class Article:
                 f'\t{self.is_writer_logged}, writer: {self.writer}, secret: {self.is_secret}\n' \
                 f'\tcontent: {self.content}'
 
-    # comment-30466326 > div.reply-header > div.reply-menu > span.time
-
     def read_reply(self):
         decoder = json.JSONDecoder()
         for i in range((self.reply_count // 50) + 1):
@@ -99,10 +98,15 @@ class Article:
         return self
 
     def visit_link(self):
+        sleep(random.random()/10)
         self.is_visited = True
         html_text = requests.get(url=self.url, allow_redirects=False).text
+        # print(html_text)
         if html_text == '':
             self.is_reachable = False
+        elif "why_captcha_detail" in html_text:
+            self.is_visited = False
+            self.content = "[rejected from cloudflare]"
         else:
             self.is_reachable = True
             soup = BeautifulSoup(html_text, 'html.parser')
@@ -138,3 +142,4 @@ class Article:
     def items_to_articles(items: list):
         articles = [Article(item_tag=item) for item in items if Article.is_item_valid(item)]
         return articles
+
